@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewAppMVOP.ListViewPageMan"
+             Background="DimGray" >
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon.png" />
+        <ToolbarItem Text="Elonův deník"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <ListView x:Name="MyListView"
+            ItemTapped="Handle_ItemTapped"
+            BackgroundColor="DimGray"
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding AllBodies}"
+            Margin="5, 10"
+            HasUnevenRows="True">
+
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tělesa" Margin="5, 20" FontSize="36" TextColor="Azure"/>
+                    
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="5,10">
+                            <Label Text="{Binding Name}" TextColor="Aqua"/>
+                            <Label Text="{Binding Gravity}" TextColor="Aqua"/>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+</ContentPage>
